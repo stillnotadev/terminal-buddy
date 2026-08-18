@@ -1,13 +1,13 @@
 {
-  "name": "error-translator",
+  "name": "terminal-buddy",
   "owner": {
     "name": "Achint Gupta"
   },
   "plugins": [
     {
-      "name": "error-translator",
+      "name": "terminal-buddy",
       "source": "./",
-      "description": "Translates scary error messages and failed terminal commands into plain English automatically, and keeps every response short, plain, and jargon-free by default."
+      "description": "Translates scary error messages and failed terminal commands into plain English automatically, asks for confirmation with a local git checkpoint before risky commands run, and keeps every response short, plain, and jargon-free by default."
     }
   ]
 }

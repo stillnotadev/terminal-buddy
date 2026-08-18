@@ -78,7 +78,7 @@ function formatFallback(text) {
   lines.push(
     c(
       DIM,
-      'If you\'re running this inside Claude Code or Cowork with the error-translator plugin installed, paste the error there instead — Claude can read your project and explain it with full context, or fix it directly.'
+      'If you\'re running this inside Claude Code or Cowork with the terminal-buddy plugin installed, paste the error there instead — Claude can read your project and explain it with full context, or fix it directly.'
     )
   );
   return lines.join('\n') + '\n';

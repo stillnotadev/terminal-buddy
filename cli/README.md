@@ -9,13 +9,13 @@ matching that runs instantly on your own computer.
 ## Install
 
 ```bash
-cd error-translator/cli
+cd terminal-buddy/cli
 npm link
 ```
 
 That makes the `explain-error` command available anywhere on your computer.
 (No `npm link` permissions? You can also just run it directly with
-`node /path/to/error-translator/cli/explain-error.js`.)
+`node /path/to/terminal-buddy/cli/explain-error.js`.)
 
 ## Use it
 

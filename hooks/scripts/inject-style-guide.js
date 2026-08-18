@@ -6,7 +6,7 @@
 // session, so it applies to every response automatically, not just when
 // the simple-explanations skill happens to get triggered on demand.
 //
-// This mirrors error-translator's own PostToolUseFailure hook in spirit
+// This mirrors terminal-buddy's own PostToolUseFailure hook in spirit
 // (make the behavior automatic rather than something that has to be
 // asked for each time), using SessionStart specifically because that's
 // the one hook event proven, in this project's own testing, to reliably

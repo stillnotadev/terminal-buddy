@@ -1,7 +1,7 @@
 {
   "name": "explain-error",
   "version": "1.0.0",
-  "description": "Turn scary error messages and stack traces into plain English, with a suggested fix. Works standalone with any coding tool (Codex, Cursor, plain terminal) or as part of the error-translator Claude Code / Cowork plugin.",
+  "description": "Turn scary error messages and stack traces into plain English, with a suggested fix. Works standalone with any coding tool (Codex, Cursor, plain terminal) or as part of the terminal-buddy Claude Code / Cowork plugin.",
   "bin": {
     "explain-error": "./explain-error.js"
   },
