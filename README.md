@@ -1,9 +1,13 @@
 # Error Translator
 
-Turns scary error messages and failed terminal commands into plain English —
-built for people who code with Claude Code, Codex, Cursor, and similar tools
-but don't have a technical background. No more panicking at a wall of red
-text, no more guessing what a command actually does before running it.
+Two things, both built for people who code with Claude Code, Codex, Cursor,
+and similar tools but don't have a technical background:
+
+1. Turns scary error messages and failed terminal commands into plain
+   English, automatically. No more panicking at a wall of red text.
+2. Keeps *every* response short, plain, and jargon-free by default, not
+   just error explanations, so Claude reads more like a helpful person and
+   less like a manual.
 
 For every error it recognizes, you get:
 
@@ -18,20 +22,28 @@ already in use," Docker not running, typos in code, missing API keys, and
 more. Anything it doesn't recognize still gets a best-effort plain-English
 pass, plus a glossary of any jargon terms spotted in the text.
 
-This project works two ways, sharing the same core logic (`lib/classify.js`)
-so the explanations are identical either way:
+The error-translation half works two ways, sharing the same core logic
+(`lib/classify.js`) so the explanations are identical either way. The
+short-and-simple half only applies inside Claude Code / Cowork, since it's
+a response-style rule, not a standalone tool.
 
 ## 1. As a Claude Code / Cowork plugin
 
 Install this whole folder as a plugin (or drag the packaged `.plugin` file
-into Cowork). You get two things automatically:
+into Cowork). You get three things automatically:
 
 - **A skill** (`skills/error-translator`) — paste any error into chat, or
   just ask "what does this mean," and Claude explains it in plain English
   using the format above, and offers to fix it if it can.
-- **A hook** (`hooks/hooks.json`) — watches every terminal command Claude
-  runs on your behalf. If one fails, Claude explains it automatically,
-  without you having to notice something went wrong and ask.
+- **A hook** (`hooks/hooks.json`, `PostToolUseFailure`) — watches every
+  terminal command Claude runs on your behalf. If one fails, Claude
+  explains it automatically, without you having to notice something went
+  wrong and ask.
+- **Short, plain responses by default** (`skills/simple-explanations` +
+  a `SessionStart` hook) — every response in the session, not just error
+  explanations, stays short, avoids unexplained jargon, and ends with a
+  clear recommendation when a decision or action is needed. Applies
+  automatically from the moment a session starts.
 
 No setup beyond installing the plugin — everything runs locally, nothing is
 sent anywhere.
@@ -59,13 +71,14 @@ no AI, no API key, no internet connection needed for the built-in patterns.
 
 ```
 error-translator/
-├── .claude-plugin/plugin.json   Plugin manifest
-├── skills/error-translator/     Chat-triggered skill (SKILL.md + reference glossary)
-├── hooks/                       Automatic PostToolUseFailure hook for failed Bash commands
-├── lib/classify.js              Shared rule engine (~25 error patterns) — the core logic
-├── lib/glossary.js              Plain-English definitions for common jargon
-├── cli/                         Standalone explain-error command
-└── test/classify.test.js        Tests for the rule engine
+├── .claude-plugin/plugin.json      Plugin manifest
+├── skills/error-translator/        Chat-triggered skill (SKILL.md + reference glossary)
+├── skills/simple-explanations/     Standing "keep it short and plain" style rule
+├── hooks/                          PostToolUseFailure (failed commands) + SessionStart (style) hooks
+├── lib/classify.js                 Shared rule engine (~25 error patterns) — the core logic
+├── lib/glossary.js                 Plain-English definitions for common jargon
+├── cli/                            Standalone explain-error command
+└── test/classify.test.js           Tests for the rule engine
 ```
 
 ## Extending the pattern list

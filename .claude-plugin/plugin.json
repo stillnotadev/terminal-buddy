@@ -1,10 +1,10 @@
 {
   "name": "error-translator",
   "version": "0.1.0",
-  "description": "Translates scary error messages and failed terminal commands into plain English for non-developers using Claude Code, Codex, or any AI coding tool. Explains what broke, why, and how to fix it — and can apply the fix. Includes a standalone explain-error CLI usable outside Claude entirely.",
+  "description": "For non-developers using Claude Code, Codex, or any AI coding tool: translates scary error messages and failed terminal commands into plain English automatically (what broke, why, how to fix it, and can apply the fix), and keeps every response short, plain, and jargon-free by default, not just error explanations. Includes a standalone explain-error CLI usable outside Claude entirely.",
   "author": {
     "name": "Achint Gupta"
   },
   "license": "MIT",
-  "keywords": ["errors", "debugging", "beginner", "non-developer", "vibe-coding", "plain-english"]
+  "keywords": ["errors", "debugging", "beginner", "non-developer", "vibe-coding", "plain-english", "simple-explanations"]
 }
