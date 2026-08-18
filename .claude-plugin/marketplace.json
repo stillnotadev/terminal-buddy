@@ -1,0 +1,13 @@
+{
+  "name": "error-translator",
+  "owner": {
+    "name": "Achint Gupta"
+  },
+  "plugins": [
+    {
+      "name": "error-translator",
+      "source": "./",
+      "description": "Translates scary error messages and failed terminal commands into plain English automatically, and keeps every response short, plain, and jargon-free by default."
+    }
+  ]
+}
